@@ -1,0 +1,10 @@
+/* Header styles for sticky/fixed header, gradient, etc. */
+header {
+  width: 100vw;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  background: linear-gradient(90deg, #e3f0ff 0%, #f8fcff 60%, #d1eaff 100%);
+  box-shadow: 0 2px 12px rgba(30, 60, 120, 0.07);
+}

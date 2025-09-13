@@ -1,0 +1,288 @@
+
+
+
+
+<!-- Responsive Header with Angular Material -->
+<mat-sidenav-container class="header-sidenav-container">
+  <mat-sidenav #drawer class="header-sidenav" mode="over" [opened]="mobileMenuOpened" (closedStart)="mobileMenuOpened = false">
+    <mat-nav-list>
+      <mat-list-item>
+        <button mat-button [matMenuTriggerFor]="aboutMenuMobile" (click)="$event.stopPropagation()">About</button>
+        <mat-menu #aboutMenuMobile="matMenu">
+          <button mat-menu-item>History</button>
+          <button mat-menu-item>Administration</button>
+          <button mat-menu-item>Accreditations</button>
+        </mat-menu>
+      </mat-list-item>
+      <mat-list-item>
+        <button mat-button [matMenuTriggerFor]="academicsMenuMobile" (click)="$event.stopPropagation()">Academics</button>
+        <mat-menu #academicsMenuMobile="matMenu">
+          <button mat-menu-item>Departments</button>
+          <button mat-menu-item>Programs</button>
+          <button mat-menu-item>Faculty</button>
+        </mat-menu>
+      </mat-list-item>
+      <mat-list-item><button mat-button>Facilities</button></mat-list-item>
+      <mat-list-item><button mat-button>Research</button></mat-list-item>
+      <mat-list-item><button mat-button>Library</button></mat-list-item>
+      <mat-list-item><button mat-button>Admission</button></mat-list-item>
+      <mat-list-item><button mat-button>Examination</button></mat-list-item>
+      <mat-list-item><button mat-button>Media</button></mat-list-item>
+      <mat-list-item><button mat-button>Contact</button></mat-list-item>
+      <mat-list-item><button mat-button routerLink="/login">Login</button></mat-list-item>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-toolbar color="primary" class="main-header">
+    <img src="images/cms_logo.png" alt="University Logo" class="header-logo" />
+    <span class="logo">Collage Management System</span>
+    <span class="spacer"></span>
+    <!-- Desktop Nav -->
+    <nav class="main-nav desktop-nav">
+  <a mat-button class="nav-btn" href="#about" (click)="$event.preventDefault(); scrollToSection('about')">About</a>
+      <!--
+      <mat-menu #aboutMenu="matMenu">
+        <button mat-menu-item>History</button>
+        <button mat-menu-item>Administration</button>
+        <button mat-menu-item>Accreditations</button>
+      </mat-menu>
+      -->
+  <a mat-button class="nav-btn" href="#fees" (click)="$event.preventDefault(); scrollToSection('fees')">Academics</a>
+      <!--
+      <mat-menu #academicsMenu="matMenu">
+        <button mat-menu-item>Departments</button>
+        <button mat-menu-item>Programs</button>
+        <button mat-menu-item>Faculty</button>
+      </mat-menu>
+      -->
+  <a mat-button class="nav-btn" href="#enquiry" (click)="$event.preventDefault(); scrollToSection('enquiry')">Facilities</a>
+  <a mat-button class="nav-btn" href="#features" (click)="$event.preventDefault(); scrollToSection('features')">Research</a>
+  <a mat-button class="nav-btn" href="#services" (click)="$event.preventDefault(); scrollToSection('services')">Library</a>
+  <a mat-button class="nav-btn" href="#fees" (click)="$event.preventDefault(); scrollToSection('fees')">Admission</a>
+  <a mat-button class="nav-btn" href="#events" (click)="$event.preventDefault(); scrollToSection('events')">Examination</a>
+  <a mat-button class="nav-btn" href="#news" (click)="$event.preventDefault(); scrollToSection('news')">Media</a>
+  <a mat-button class="nav-btn" href="#contact" (click)="$event.preventDefault(); scrollToSection('contact')">Contact</a>
+  <button mat-button class="nav-btn" routerLink="/login">Login</button>
+    </nav>
+    <!-- Hamburger for mobile -->
+    <button mat-icon-button class="mobile-menu-btn" (click)="mobileMenuOpened = !mobileMenuOpened">
+      <mat-icon>menu</mat-icon>
+    </button>
+  </mat-toolbar>
+</mat-sidenav-container>
+
+
+<!-- Banner Slider -->
+<div class="slider">
+  <div class="slider-wrapper">
+    <button mat-icon-button class="slider-arrow left" (click)="prevBanner()">
+      <i class="fa fa-chevron-left" style="color:whitesmoke;font-size:2.2rem;"></i>
+    </button>
+    <img [src]="bannerImages[currentBanner]" alt="Banner" class="slider-img" />
+    <button mat-icon-button class="slider-arrow right" (click)="nextBanner()">
+      <i class="fa fa-chevron-right" style="color:whitesmoke;font-size:2.2rem;"></i>
+    </button>
+  </div>
+  <div class="slider-dots">
+    <span *ngFor="let img of bannerImages; let i = index" [class.active]="i === currentBanner" (click)="goToBanner(i)"></span>
+  </div>
+  <div class="slider-content">
+    <h1>Empowering Education, Enabling Success</h1>
+    <p>Modern solutions for managing your college efficiently.</p>
+    <button mat-raised-button color="accent" routerLink="/dashboard">Get Started</button>
+  </div>
+</div>
+
+  <!-- About Us Section (moved and redesigned) -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-img-wrapper">
+        <img src="/banner/about-campus.jpg" alt="About College" class="about-img" />
+      </div>
+      <div class="about-content">
+        <h2 class="about-heading">
+          <span class="about-title-main">About</span>
+          <span class="about-title-highlight">Our College Management System</span>
+        </h2>
+        <div class="about-desc-card">
+          <p>
+            The College Management System (CMS) is a comprehensive, modern, and user-friendly platform designed to streamline and enhance every aspect of campus administration and student life. Our mission is to empower educational institutions with the tools they need to operate efficiently, foster academic excellence, and create a vibrant, connected community.
+          </p>
+          <p>
+            <b>Why Choose Our CMS?</b><br>
+            Our CMS is built with the latest technology and best practices in mind, ensuring robust security, scalability, and ease of use. From admissions to alumni management, every module is crafted to address real-world challenges faced by colleges and universities. The intuitive dashboard provides quick access to all essential features, while role-based access ensures that students, faculty, and administrators have the tools they need, when they need them.
+          </p>
+          <button mat-raised-button color="primary" (click)="aboutPopupOpen = true">Read More</button>
+        </div>
+        <!-- About Us Popup Modal (now inside About Us section) -->
+        <div class="about-popup-backdrop" *ngIf="aboutPopupOpen" (click)="aboutPopupOpen = false">
+          <div class="about-popup" (click)="$event.stopPropagation()">
+            <h2 class="about-popup-heading">
+              <span class="about-title-main">About</span>
+              <span class="about-title-highlight">Our College Management System</span>
+            </h2>
+            <div class="about-popup-content">
+              <p>
+                The College Management System (CMS) is a comprehensive, modern, and user-friendly platform designed to streamline and enhance every aspect of campus administration and student life. Our mission is to empower educational institutions with the tools they need to operate efficiently, foster academic excellence, and create a vibrant, connected community.
+              </p>
+              <p>
+                <b>Why Choose Our CMS?</b><br>
+                Our CMS is built with the latest technology and best practices in mind, ensuring robust security, scalability, and ease of use. From admissions to alumni management, every module is crafted to address real-world challenges faced by colleges and universities. The intuitive dashboard provides quick access to all essential features, while role-based access ensures that students, faculty, and administrators have the tools they need, when they need them.
+              </p>
+              <div class="about-features">
+                <b>Key Features:</b>
+                <ul>
+                  <li><b>Student Management:</b> Effortlessly handle admissions, attendance, grades, and student records.</li>
+                  <li><b>Faculty Management:</b> Organize faculty profiles, schedules, and performance reviews.</li>
+                  <li><b>Course & Exam Management:</b> Create, update, and monitor courses, syllabi, and examinations with ease.</li>
+                  <li><b>Communication Tools:</b> Send notifications, announcements, and alerts to keep everyone informed.</li>
+                  <li><b>Analytics & Reporting:</b> Generate detailed reports for data-driven decision making.</li>
+                  <li><b>Library & Resource Management:</b> Track books, journals, and digital resources efficiently.</li>
+                  <li><b>Secure Login & Role-based Access:</b> Ensure data privacy and custom permissions for all users.</li>
+                </ul>
+              </div>
+              <p>
+                <b>Our Vision:</b><br>
+                We believe that technology should empower, not complicate. Our CMS is designed to reduce administrative burden, improve communication, and foster a culture of transparency and collaboration. With mobile-friendly interfaces and cloud-based access, our platform supports learning and management from anywhere, at any time.
+              </p>
+              <p>
+                <b>Commitment to Excellence:</b><br>
+                Our dedicated support team is always ready to assist, ensuring a smooth onboarding process and ongoing success. We continuously update our platform based on user feedback and the evolving needs of educational institutions.
+              </p>
+              <p>
+                <b>Join Us:</b><br>
+                Discover how our College Management System can transform your campus experience. Whether you are a student, faculty member, or administrator, our platform is here to help you achieve your goals and build a brighter future together.
+              </p>
+              <button mat-raised-button color="accent" (click)="aboutPopupOpen = false">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- Our Services -->
+<section class="services-section" id="services">
+  <h2>Our Services</h2>
+  <div class="services-list">
+    <mat-card class="service-card"
+      *ngFor="let service of services; let i = index"
+      [ngClass]="{ 'hovered': hoveredService === i }"
+      (mouseenter)="hoveredService = i"
+      (mouseleave)="hoveredService = null">
+      <div class="service-img-wrapper">
+        <img [src]="service.img" [alt]="service.title" class="service-img" />
+      </div>
+      <div class="service-content">
+        <h3>{{service.title}}</h3>
+        <p>{{service.desc}}</p>
+        <button mat-stroked-button color="primary" (click)="openServicePopup(i, $event)">View</button>
+      </div>
+    </mat-card>
+  </div>
+
+  <!-- Popup Modal -->
+  <div class="service-popup-backdrop" *ngIf="popupOpen" (click)="closeServicePopup()">
+    <div class="service-popup" (click)="$event.stopPropagation()">
+      <img [src]="selectedService?.img" [alt]="selectedService?.title" class="popup-img" />
+      <div class="popup-content">
+        <h2>{{selectedService?.title}}</h2>
+        <p>{{selectedService?.desc}}</p>
+        <p>{{selectedService?.details}}</p>
+        <button mat-raised-button color="accent" (click)="closeServicePopup()">Close</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features -->
+<section class="features-section" id="features">
+  <h2>Features</h2>
+  <div class="features-list">
+    <mat-card class="feature-card"
+      *ngFor="let feature of features; let i = index"
+      [ngClass]="{ 'hovered': hoveredFeature === i }"
+      (mouseenter)="hoveredFeature = i"
+      (mouseleave)="hoveredFeature = null">
+      <div class="feature-img-wrapper">
+        <img [src]="feature.img" [alt]="feature.title" class="feature-img" />
+      </div>
+      <div class="feature-content">
+        <h3>{{feature.title}}</h3>
+        <p>{{feature.desc}}</p>
+      </div>
+    </mat-card>
+  </div>
+</section>
+
+
+<!-- Course Fees Structure -->
+<section class="fees-section" id="fees">
+  <h2>Course Fees Structure</h2>
+  <table mat-table [dataSource]="courseFees" class="mat-elevation-z2 fees-table">
+    <ng-container matColumnDef="course">
+      <th mat-header-cell *matHeaderCellDef> Course </th>
+      <td mat-cell *matCellDef="let element"> {{element.course}} </td>
+    </ng-container>
+    <ng-container matColumnDef="fees">
+      <th mat-header-cell *matHeaderCellDef> Fees </th>
+      <td mat-cell *matCellDef="let element"> {{element.fees}} </td>
+    </ng-container>
+    <tr mat-header-row *matHeaderRowDef="['course', 'fees']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['course', 'fees'];"></tr>
+  </table>
+
+<!-- Enquiry Section with fixed background -->
+<section class="enquiry-section">
+  <div class="enquiry-bg-img"></div>
+  <div class="enquiry-content">
+    <h2>Have a Question or Need Help?</h2>
+    <p>Contact our team for any admission or course related enquiry. We are here to assist you!</p>
+    <button mat-raised-button color="primary" class="enquiry-btn">Enquiry Now</button>
+  </div>
+</section>
+
+<!-- Map Section -->
+<section class="map-section">
+  <h2>Find Us</h2>
+  <div class="map-container">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.019123!2d77.5946!3d12.9716!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0:0x0!2zMTLCsDU4JzE3LjgiTiA3N8KwMzUnNDkuNiJF!5e0!3m2!1sen!2sin!4v1631261234567!5m2!1sen!2sin" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+  </div>
+</section>
+
+
+<!-- Footer (modeled after lkouniv.ac.in) with campus image background -->
+<footer class="footer">
+  <div class="footer-bg-img"></div>
+  <div class="footer-main">
+    <div class="footer-logo-section">
+      <img src="assets/images/university_logo.png" alt="University Logo" class="footer-logo" />
+      <div class="footer-univ-name">University of Lucknow</div>
+      <div class="footer-address">University of Lucknow - 226 007, India</div>
+      <div class="footer-contact">
+  <a href="mailto:info&#64;lkouniv.ac.in">info&#64;lkouniv.ac.in</a>
+      </div>
+    </div>
+    <div class="footer-links-section">
+      <div class="footer-links-title">TERMS & POLICIES</div>
+      <ul class="footer-links-list">
+        <li><a href="#">Disclaimer</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Copyright Policy</a></li>
+        <li><a href="#">Terms & Conditions</a></li>
+        <li><a href="#">Hyperlinking Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-social-section">
+      <div class="footer-links-title">Connect with us on :</div>
+      <div class="footer-social-icons">
+        <a href="https://www.facebook.com/profile.php?id=100078238549791" target="_blank" aria-label="Facebook"><mat-icon>facebook</mat-icon></a>
+        <a href="https://twitter.com/lkouniv" target="_blank" aria-label="Twitter"><mat-icon>twitter</mat-icon></a>
+        <a href="https://www.youtube.com/channel/UCtpNUglUAhCIlOc8gww5KuQ" target="_blank" aria-label="YouTube"><mat-icon>youtube</mat-icon></a>
+        <a href="https://www.instagram.com/univ.of.lucknow" target="_blank" aria-label="Instagram"><mat-icon>instagram</mat-icon></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 University of Lucknow. All rights reserved.</div>
+  </div>
+</footer>
