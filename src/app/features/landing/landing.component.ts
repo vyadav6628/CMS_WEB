@@ -24,7 +24,8 @@ import { RouterModule } from '@angular/router';
     MatMenuModule,
     MatSidenavModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    MatIconModule
   ],
   templateUrl: './landing.component.html',
   styleUrls: ['./landing.component.scss']
@@ -35,27 +36,27 @@ export class LandingComponent {
     {
       title: 'Easy Dashboard',
       desc: 'Intuitive dashboard for quick access to all modules.',
-      img: '/banner/feature-dashboard.jpg'
+      img: '/Features/download.png'
     },
     {
       title: 'Secure Login',
       desc: 'Advanced authentication and role-based access.',
-      img: '/banner/feature-login.jpg'
+      img: '/Features/secure_ligin.png'
     },
     {
       title: 'Detailed Reports',
       desc: 'Comprehensive analytics and exportable reports.',
-      img: '/banner/feature-reports.jpg'
+      img: '/Features/report.png'
     },
     {
       title: 'Notifications',
       desc: 'Real-time alerts for students, faculty, and admins.',
-      img: '/banner/feature-notifications.jpg'
+      img: '/Features/notification.png'
     },
     {
       title: 'Role-based Access',
       desc: 'Custom permissions for different user types.',
-      img: '/banner/feature-role.jpg'
+      img: '/Features/role_base_access.png'
     }
   ];
   hoveredFeature: number|null = null;
@@ -63,34 +64,40 @@ export class LandingComponent {
     {
       title: 'Student Management',
       desc: 'Manage student records, admissions, and progress.',
-      img: '/banner/service-student.jpg',
+      img: '/OurServices/mangement1.png',
       details: 'Easily enroll, update, and track student information with advanced search and reporting.'
     },
     {
       title: 'Faculty Management',
       desc: 'Organize faculty profiles, schedules, and payroll.',
-      img: '/banner/service-faculty.jpg',
+      img: '/OurServices/faculty.png',
       details: 'Assign courses, manage attendance, and handle payroll efficiently.'
     },
     {
       title: 'Course Management',
       desc: 'Create and update courses, syllabi, and materials.',
-      img: '/banner/service-course.jpg',
+      img: '/OurServices/course.png',
       details: 'Flexible course creation, prerequisites, and resource management.'
     },
     {
       title: 'Attendance Tracking',
       desc: 'Track student and faculty attendance in real time.',
-      img: '/banner/service-attendance.jpg',
+      img: '/OurServices/attandance.png',
       details: 'Automated attendance with analytics and notifications.'
     },
     {
       title: 'Exam Management',
       desc: 'Schedule, conduct, and grade exams securely.',
-      img: '/banner/service-exam.jpg',
+      img: '/OurServices/exame.png',
       details: 'Online/offline exam support, grading, and result publishing.'
     }
   ];
+socialIcons = [
+  { iconClass: 'fab fa-facebook-f', url: 'https://example.com/facebook', ariaLabel: 'Facebook' },
+  { iconClass: 'fab fa-twitter', url: 'https://example.com/twitter', ariaLabel: 'Twitter' },
+  { iconClass: 'fab fa-youtube', url: 'https://example.com/youtube', ariaLabel: 'YouTube' },
+  { iconClass: 'fab fa-instagram', url: 'https://example.com/instagram', ariaLabel: 'Instagram' }
+];
   hoveredService: number|null = null;
   popupOpen = false;
   selectedService: any = null;

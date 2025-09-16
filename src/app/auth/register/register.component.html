@@ -1,0 +1,54 @@
+<div class="register-wrapper">
+  <div class="register-container">
+    <div class="register-image-section">
+      <img src="/banner/svgviewer-output.svg" alt="Register Visual" class="register-side-img" height="100%" width="100%"/>
+    </div>
+    <div class="register-form-section">
+      <mat-card class="register-card">
+        <!-- <div class="register-navbar">
+          <a mat-stroked-button color="primary" routerLink="/register" routerLinkActive="active-link" class="register-now-btn">Register Now</a>
+          <a mat-stroked-button color="accent" routerLink="/login" routerLinkActive="active-link" class="login-now-btn">Login</a>
+        </div> -->
+        <h2>Registration</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="register-fields-row">
+            <mat-form-field appearance="fill" class="register-field">
+              <mat-label>Name</mat-label>
+              <input matInput formControlName="name" required>
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="register-field">
+              <mat-label>Email</mat-label>
+              <input matInput formControlName="email" required type="email">
+            </mat-form-field>
+          </div>
+          <div class="register-fields-row">
+            <mat-form-field appearance="fill" class="register-field">
+              <mat-label>Mobile</mat-label>
+              <input matInput formControlName="mobile" required maxlength="10">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="register-field">
+              <mat-label>User ID</mat-label>
+              <input matInput formControlName="userid" required>
+            </mat-form-field>
+          </div>
+          <div class="register-fields-row">
+            <mat-form-field appearance="fill" class="register-field">
+              <mat-label>Password</mat-label>
+              <input matInput formControlName="password" required type="password">
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="register-field">
+              <mat-label>Confirm Password</mat-label>
+              <input matInput formControlName="confirmPassword" required type="password">
+            </mat-form-field>
+          </div>
+          <div class="register-error" *ngIf="submitted && registerForm.errors?.['mismatch']">Passwords do not match.</div>
+          <button mat-raised-button color="primary" type="submit">Register</button>
+          <!-- <div class="register-login-link"> -->
+             <div class="register-login-link">
+            Already registered? <a routerLink="/login" routerLinkActive="active-link">Login here</a>
+          </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>

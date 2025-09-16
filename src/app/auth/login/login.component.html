@@ -1,0 +1,39 @@
+<div class="login-wrapper">
+  <div class="login-image-section">
+    <!-- <img src="/images/log.png" alt="Login Visual" class="login-side-img" /> -->
+     <img src="/images/log.png" alt="Login Visual"/>
+  </div>
+  <div class="login-form-section">
+    <mat-card class="login-card">
+      <h2>Login</h2>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="fill" class="login-field">
+          <mat-label>User ID</mat-label>
+          <input matInput formControlName="userid" autocomplete="username">
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="login-field">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" formControlName="password" autocomplete="current-password">
+        </mat-form-field>
+        <div class="captcha-row">
+          <span class="captcha-box">{{ captchaValue }}</span>
+          <button mat-icon-button color="primary" type="button" (click)="generateCaptcha()" class="captcha-refresh-btn" aria-label="Refresh Captcha">
+            <mat-icon>refresh</mat-icon>
+          </button>
+        </div>
+        <mat-form-field appearance="fill" class="login-field">
+          <mat-label>Enter Captcha</mat-label>
+          <input matInput formControlName="captcha" autocomplete="off">
+        </mat-form-field>
+        <div class="error-msg" *ngIf="errorMsg">{{ errorMsg }}</div>
+        <div class="login-btn-row">
+          <button mat-raised-button color="primary" type="submit">Login</button>
+          <button mat-stroked-button color="accent" type="button" (click)="loginForm.reset(); generateCaptcha(); errorMsg=''">Reset</button>
+        </div>
+        <div class="register-login-link">
+          New user? <a routerLink="/register">Register now</a>
+        </div>
+      </form>
+    </mat-card>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<app-navbar [role]="role"></app-navbar>
+<div class="dashboard-layout">
+  <app-sidebar [role]="role"></app-sidebar>
+  <main class="dashboard-main">
+    <h1>Welcome, {{ role }}</h1>
+    <div class="dashboard-graph">
+      <ng-container [ngSwitch]="role">
+        <div *ngSwitchCase="'Super Admin'">
+          <h2>Super Admin Graph</h2>
+          <!-- Graph for Super Admin -->
+        </div>
+        <div *ngSwitchCase="'Admin'">
+          <h2>Admin Graph</h2>
+          <!-- Graph for Admin -->
+        </div>
+        <div *ngSwitchCase="'Staff'">
+          <h2>Staff Graph</h2>
+          <!-- Graph for Staff -->
+        </div>
+        <div *ngSwitchCase="'Student'">
+          <h2>Student Graph</h2>
+          <!-- Graph for Student -->
+        </div>
+        <div *ngSwitchDefault>
+          <h2>Dashboard</h2>
+        </div>
+      </ng-container>
+    </div>
+  </main>
+</div>
+<app-footer></app-footer>

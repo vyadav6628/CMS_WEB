@@ -1,0 +1,20 @@
+<aside class="sidebar" [class.closed]="!isOpen">
+  <button class="sidebar-toggle" (click)="toggleSidebar()">
+    <span *ngIf="isOpen">&#10094;</span>
+    <span *ngIf="!isOpen">&#10095;</span>
+  </button>
+  <ul *ngIf="isOpen">
+    <li *ngIf="role === 'Super Admin' || role === 'Admin'">
+      <a routerLink="/dashboard/users"><i class="fa fa-users"></i> <span class="sidebar-label">Manage Users</span></a>
+    </li>
+    <li *ngIf="role === 'Super Admin' || role === 'Admin' || role === 'Staff'">
+      <a routerLink="/dashboard/attendance"><i class="fa fa-calendar-check-o"></i> <span class="sidebar-label">Attendance</span></a>
+    </li>
+    <li *ngIf="role === 'Student'">
+      <a routerLink="/dashboard/courses"><i class="fa fa-book"></i> <span class="sidebar-label">My Courses</span></a>
+    </li>
+    <li>
+      <a routerLink="/dashboard/graph"><i class="fa fa-bar-chart"></i> <span class="sidebar-label">Dashboard Graph</span></a>
+    </li>
+  </ul>
+</aside>

@@ -22,22 +22,24 @@
           <button mat-menu-item>Faculty</button>
         </mat-menu>
       </mat-list-item>
-      <mat-list-item><button mat-button>Facilities</button></mat-list-item>
+      <!-- <mat-list-item><button mat-button>Facilities</button></mat-list-item> -->
       <mat-list-item><button mat-button>Research</button></mat-list-item>
       <mat-list-item><button mat-button>Library</button></mat-list-item>
       <mat-list-item><button mat-button>Admission</button></mat-list-item>
       <mat-list-item><button mat-button>Examination</button></mat-list-item>
       <mat-list-item><button mat-button>Media</button></mat-list-item>
       <mat-list-item><button mat-button>Contact</button></mat-list-item>
-      <mat-list-item><button mat-button routerLink="/login">Login</button></mat-list-item>
+  <mat-list-item><button mat-button routerLink="/login">Login</button></mat-list-item>
+  <mat-list-item><button mat-stroked-button color="primary" routerLink="/register">Register Now</button></mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
   <mat-toolbar color="primary" class="main-header">
     <img src="images/cms_logo.png" alt="University Logo" class="header-logo" />
     <span class="logo">Collage Management System</span>
-    <span class="spacer"></span>
+  <span class="spacer"></span>
     <!-- Desktop Nav -->
     <nav class="main-nav desktop-nav">
+      <a mat-stroked-button color="primary" routerLink="/register" class="register-now-navbar-btn">Register Now</a>
   <a mat-button class="nav-btn" href="#about" (click)="$event.preventDefault(); scrollToSection('about')">About</a>
       <!--
       <mat-menu #aboutMenu="matMenu">
@@ -54,13 +56,14 @@
         <button mat-menu-item>Faculty</button>
       </mat-menu>
       -->
-  <a mat-button class="nav-btn" href="#enquiry" (click)="$event.preventDefault(); scrollToSection('enquiry')">Facilities</a>
+  <!-- <a mat-button class="nav-btn" href="#enquiry" (click)="$event.preventDefault(); scrollToSection('enquiry')">Facilities</a> -->
   <a mat-button class="nav-btn" href="#features" (click)="$event.preventDefault(); scrollToSection('features')">Research</a>
   <a mat-button class="nav-btn" href="#services" (click)="$event.preventDefault(); scrollToSection('services')">Library</a>
-  <a mat-button class="nav-btn" href="#fees" (click)="$event.preventDefault(); scrollToSection('fees')">Admission</a>
-  <a mat-button class="nav-btn" href="#events" (click)="$event.preventDefault(); scrollToSection('events')">Examination</a>
-  <a mat-button class="nav-btn" href="#news" (click)="$event.preventDefault(); scrollToSection('news')">Media</a>
+  <!-- <a mat-button class="nav-btn" href="#fees" (click)="$event.preventDefault(); scrollToSection('fees')">Admission</a> -->
+  <!-- <a mat-button class="nav-btn" href="#events" (click)="$event.preventDefault(); scrollToSection('events')">Examination</a> -->
+  <!-- <a mat-button class="nav-btn" href="#news" (click)="$event.preventDefault(); scrollToSection('news')">Media</a> -->
   <a mat-button class="nav-btn" href="#contact" (click)="$event.preventDefault(); scrollToSection('contact')">Contact</a>
+    <button mat-button class="nav-btn" routerLink="/register">Registration</button>
   <button mat-button class="nav-btn" routerLink="/login">Login</button>
     </nav>
     <!-- Hamburger for mobile -->
@@ -96,7 +99,7 @@
   <section id="about" class="about-section">
     <div class="about-container">
       <div class="about-img-wrapper">
-        <img src="/banner/about-campus.jpg" alt="About College" class="about-img" />
+        <img src="/banner/abouts.jpg" alt="About College" class="about-img" height="100%" width="100%"/>
       </div>
       <div class="about-content">
         <h2 class="about-heading">
@@ -255,11 +258,11 @@
   <div class="footer-bg-img"></div>
   <div class="footer-main">
     <div class="footer-logo-section">
-      <img src="assets/images/university_logo.png" alt="University Logo" class="footer-logo" />
-      <div class="footer-univ-name">University of Lucknow</div>
-      <div class="footer-address">University of Lucknow - 226 007, India</div>
+      <!-- <img src="images/cms_logo.png" alt="University Logo" class="footer-logo" /> -->
+      <div class="footer-univ-name">Collage Management System</div>
+      <div class="footer-address">Collage Management System - 226 007, India</div>
       <div class="footer-contact">
-  <a href="mailto:info&#64;lkouniv.ac.in">info&#64;lkouniv.ac.in</a>
+  <a href="mailto:cms@gamil.com">Collage Email</a>
       </div>
     </div>
     <div class="footer-links-section">
@@ -274,15 +277,24 @@
     </div>
     <div class="footer-social-section">
       <div class="footer-links-title">Connect with us on :</div>
-      <div class="footer-social-icons">
+      <!-- <div class="footer-social-icons">
         <a href="https://www.facebook.com/profile.php?id=100078238549791" target="_blank" aria-label="Facebook"><mat-icon>facebook</mat-icon></a>
         <a href="https://twitter.com/lkouniv" target="_blank" aria-label="Twitter"><mat-icon>twitter</mat-icon></a>
         <a href="https://www.youtube.com/channel/UCtpNUglUAhCIlOc8gww5KuQ" target="_blank" aria-label="YouTube"><mat-icon>youtube</mat-icon></a>
         <a href="https://www.instagram.com/univ.of.lucknow" target="_blank" aria-label="Instagram"><mat-icon>instagram</mat-icon></a>
-      </div>
+      </div> -->
+     <div class="footer-social-icons">
+  <a *ngFor="let icon of socialIcons"
+     [href]="icon.url"
+     target="_blank"
+     rel="noopener"
+     [attr.aria-label]="icon.ariaLabel">
+    <i [class]="icon.iconClass"></i>
+  </a>
+</div>
     </div>
   </div>
   <div class="footer-bottom">
-    <div>© 2025 University of Lucknow. All rights reserved.</div>
+    <div>© 2025 CMS. All rights reserved.</div>
   </div>
 </footer>

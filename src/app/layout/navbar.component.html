@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <span class="navbar-title">CMS Dashboard</span>
+  <ul class="navbar-links">
+    <li *ngIf="role === 'Super Admin' || role === 'Admin'">
+      <a routerLink="/dashboard/users">Users</a>
+    </li>
+    <li *ngIf="role === 'Super Admin' || role === 'Admin' || role === 'Staff'">
+      <a routerLink="/dashboard/reports">Reports</a>
+    </li>
+    <li *ngIf="role === 'Student'">
+      <a routerLink="/dashboard/profile">Profile</a>
+    </li>
+    <li>
+      <a routerLink="/login">Logout</a>
+    </li>
+  </ul>
+</nav>
